@@ -14,7 +14,6 @@ public class Customer {
     setUsername(username);
     setPassword(password);
     setAccountId(accountId);
-
   }
 
   public int getId() {
