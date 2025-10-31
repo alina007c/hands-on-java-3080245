@@ -28,11 +28,11 @@ public class Account {
     this.type = type;
   }
 
-  public float getBalance() {
+  public double getBalance() {
     return this.balance;
   }
 
-  public void setBalance(float balance) {
+  public void setBalance(double balance) {
     this.balance = balance;
   }
 
