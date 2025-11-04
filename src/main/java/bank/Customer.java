@@ -8,7 +8,6 @@ public class Customer {
   private String password;
   private int accountId;
   private boolean authenticated;
-  setAuthenticated(authenticated:false);
 
   public Customer(int id, String name, String username, String password, int accountId) {
     setId(id);
@@ -16,6 +15,7 @@ public class Customer {
     setUsername(username);
     setPassword(password);
     setAccountId(accountId);
+    setAuthenticated(false);
   }
 
   public int getId() {
