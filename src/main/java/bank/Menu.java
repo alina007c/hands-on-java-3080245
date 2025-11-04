@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 import javax.security.auth.login.LoginException;
 
+import bank.exceptions.AmountException;
+
 public class Menu {
 
   private Scanner scanner;
@@ -42,7 +44,7 @@ public class Menu {
 
 private void showMenu(Customer customer, Account account){
     int selection =0;
-    while (selection != 4 && customer.isAuthenticated(){
+    while (selection != 4 && customer.isAuthenticated()){
       System.out.println("------------------------------------------");
       System.out.println("Please enter one of the following options: ");
       System.out.println("1. Deposit");
@@ -59,13 +61,23 @@ private void showMenu(Customer customer, Account account){
         case 1:
           System.out.println("How much whould you like to deposit?");
           amount = scanner.nextDouble();
-          account.deposit(amount);
+          try {
+            account.deposit(amount);
+        } catch(AmountException e) {
+            System.out.println(e.getMessage());
+            System.out.println("Please try again. :)");
+          }
           break;
 
         case 2:
           System.out.println("How much whould you like to withdraw?"); 
           amount = scanner.nextDouble();
-          account.withdraw(amount);
+          try {
+            account.withdraw(amount);
+          } catch(AmountException e) {
+            System.out.println(e.getMessage());
+            System.out.println("Please try again. :)");
+          }
           break;
 
         case 3:
@@ -81,7 +93,7 @@ private void showMenu(Customer customer, Account account){
           System.out.println("Invalid option. Please try again:).");
           break;
       }
-    })
+    }
   }
 
   /*
