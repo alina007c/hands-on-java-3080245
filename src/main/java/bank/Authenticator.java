@@ -12,7 +12,7 @@ public class Authenticator {
       throw new LoginException("username not found");
     }
 
-    if password.equals(Customer.getPassword()) {
+    if (password.equals(customer.getPassword())) {
       customer.setAuthenticated(true);
       return customer;
     }
@@ -35,7 +35,7 @@ public class Authenticator {
 
   public static void logout (Customer customer){
     // no action needed for a simple logout
-    Customer.setAuthenticated(false);
+    customer.setAuthenticated(false);
   }
 
 }
